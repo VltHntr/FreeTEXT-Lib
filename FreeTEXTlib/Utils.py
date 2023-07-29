@@ -2,7 +2,7 @@ import json
 import os
 
 from FreeTEXTlib.Models import DataForm, Header, Creator
-from FreeTEXTlib.Formats import Keys
+from FreeTEXTlib.Statics import Keys
 
 
 class Formatter:
@@ -13,7 +13,7 @@ class Formatter:
 
     def init_format(self, creator: Creator):
         if self.isInit:
-            print("Already initialize...")
+            print("Already initialized...")
         else:
             print("initialize Formatter...")
 
@@ -23,8 +23,17 @@ class Formatter:
                 )
             )
 
-            print("Formatter is initialize.")
+            print("Formatter is initialized.")
             self.isInit = True
+
+    def set_body(self, body: str):
+        self.data.body = body
+
+    def get_body(self):
+        return self.data.body
+
+    def overide_creator(self, new_creator: Creator):
+        self.data.header.creator = new_creator
 
     def to_freetext(self):
         formatted = {
@@ -47,7 +56,7 @@ class Formatter:
 
         return json.dumps(formatted, indent=4)
 
-    def to_data(self):
+    def to_data(self, data: str):
         pass
 
     def from_txt(self, creator: Creator):

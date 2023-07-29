@@ -1,4 +1,10 @@
 import dataclasses
+from enum import Enum
+
+
+class LibraryInformation(Enum):
+    LIBVER = 0.1
+    FMTVER = 0.1
 
 
 @dataclasses.dataclass

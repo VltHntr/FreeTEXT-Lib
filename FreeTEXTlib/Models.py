@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 import datetime
 
+from FreeTEXTlib.Statics import LibraryInformation
+
 
 @dataclass
 class Creator:
@@ -16,9 +18,9 @@ class Header:
 
 @dataclass
 class Footer:
-    libVersion: float = 0.1
+    libVersion: float = LibraryInformation.LIBVER.value
     programVersion: float = 0.1
-    formatterVersion: float = 0.1
+    formatterVersion: float = LibraryInformation.FMTVER.value
 
 
 @dataclass
