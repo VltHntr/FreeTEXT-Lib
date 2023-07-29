@@ -1,10 +1,33 @@
+from dataclasses import dataclass
+import datetime
+
+
+@dataclass
 class Creator:
-    def __init__(self, last_name: str, first_name: str) -> None:
-        self.lastname = last_name
-        self.firstname = first_name
+    lastname: str
+    firstname: str
 
-    def get_lastname(self):
-        return self.lastname
 
-    def get_firstname(self):
-        return self.firstname
+@dataclass
+class Header:
+    creator: Creator
+    date: str = str(datetime.date.today())
+
+
+@dataclass
+class Body:
+    body: str
+
+
+@dataclass
+class Footer:
+    libVersion: float = 0.1
+    programVersion: float = 0.1
+    formatterVersion: float = 0.1
+
+
+@dataclass
+class DataForm:
+    header: Header
+    body: Body
+    footer: Footer = Footer()

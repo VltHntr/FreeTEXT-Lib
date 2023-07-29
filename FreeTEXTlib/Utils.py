@@ -3,9 +3,12 @@ import os
 import datetime
 
 from FreeTEXTlib.Models import Creator
+from FreeTEXTlib.Models import DataForm, Header, Body, Footer, Creator
 
 
-class Formater:
+class Formatter:
+    data: DataForm
+
     def __init__(self) -> None:
         self.format = {}
         self.isInit = False
@@ -14,63 +17,32 @@ class Formater:
         if self.isInit:
             print("Already initialize...")
         else:
-            print("initialize Formater...")
-            form = [
-                self.__init_header(creator),
-                self.__init_body(),
-                self.__init_footer()
-            ]
+            print("initialize Formatter...")
 
-            for i in form:
-                self.format.update(i)
+            self.data = DataForm(
+                header=Header(
+                    creator=creator
+                ),
+                body=Body(body="")
+            )
 
             print("Formatter is initialize.")
             self.isInit = True
 
-    def __init_header(self, creator: Creator):
-        print("initialize Header...")
-        header = {
-            "header": {
-                "creator": {
-                    "lastname": creator.get_lastname(),
-                    "firstname": creator.get_firstname()
-                },
-                "date": datetime.date.today()
-            }
-        }
-        print("Header is initialize.")
+    def to_freetext(self):
+        pass
 
-        return header
+    def to_data(self):
+        pass
 
-    def __init_body(self):
-        print("initialize Body...")
-        body = {"body": ""}
-        print("Body is initialize.")
-
-        return body
-
-    def __init_footer(self):
-        print("initialize footer...")
-        footer = {
-            "footer": {
-                "libver": 0.1,
-                "progver": 0.1,
-                "fmtver": 0.1
-            }
-        }
-        print("Footer is initialize.")
-
-        return footer
-
-    def data(self):
-        def header(self):
-            return self.format['header']
+    def from_txt(self, creator: Creator):
+        pass
 
 
 class SaveManager:
-    def __init__(self, basePath: str, formater: Formater = None) -> None:
-        self.basePath = basePath
-        self.formater = formater
+    def __init__(self, base_path: str, formatter: Formatter = None) -> None:
+        self.basePath = base_path
+        self.formater = formatter
 
         if not os.path.exists(self.basePath):
             os.makedirs(self.basePath)
