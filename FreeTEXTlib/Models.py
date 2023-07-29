@@ -1,7 +1,7 @@
 class Creator:
-    def __init__(self, LastName: str, FirstName: str) -> None:
-        self.lastname = LastName
-        self.firstname = FirstName
+    def __init__(self, last_name: str, first_name: str) -> None:
+        self.lastname = last_name
+        self.firstname = first_name
 
     def get_lastname(self):
         return self.lastname

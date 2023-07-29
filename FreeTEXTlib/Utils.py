@@ -62,6 +62,10 @@ class Formater:
 
         return footer
 
+    def data(self):
+        def header(self):
+            return self.format['header']
+
 
 class SaveManager:
     def __init__(self, basePath: str, formater: Formater = None) -> None:
