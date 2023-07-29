@@ -15,11 +15,6 @@ class Header:
 
 
 @dataclass
-class Body:
-    body: str
-
-
-@dataclass
 class Footer:
     libVersion: float = 0.1
     programVersion: float = 0.1
@@ -29,5 +24,5 @@ class Footer:
 @dataclass
 class DataForm:
     header: Header
-    body: Body
+    body: str = ""
     footer: Footer = Footer()

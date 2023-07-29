@@ -1,3 +1,21 @@
+import dataclasses
+
+
+@dataclasses.dataclass
+class Keys:
+    header: str = "header"
+    creator: str = "creator"
+    lastName: str = "lastname"
+    firstName: str = "firstname"
+    date: str = "date"
+    body: str = "body"
+    footer: str = "footer"
+    libraryVersion: str = "libver"
+    programVersion: str = "progver"
+    formatterVersion: str = "fmtver"
+
+
+# This dict is just as a template and should not be used
 v01 = {
     "header": {
         "creator": {

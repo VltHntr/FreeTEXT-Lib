@@ -1,16 +1,14 @@
 import json
 import os
-import datetime
 
-from FreeTEXTlib.Models import Creator
-from FreeTEXTlib.Models import DataForm, Header, Body, Footer, Creator
+from FreeTEXTlib.Models import DataForm, Header, Creator
+from FreeTEXTlib.Formats import Keys
 
 
 class Formatter:
     data: DataForm
 
     def __init__(self) -> None:
-        self.format = {}
         self.isInit = False
 
     def init_format(self, creator: Creator):
@@ -22,15 +20,32 @@ class Formatter:
             self.data = DataForm(
                 header=Header(
                     creator=creator
-                ),
-                body=Body(body="")
+                )
             )
 
             print("Formatter is initialize.")
             self.isInit = True
 
     def to_freetext(self):
-        pass
+        formatted = {
+            Keys.header: {
+                Keys.creator: {
+                    Keys.lastName: self.data.header.creator.lastname,
+                    Keys.firstName: self.data.header.creator.firstname
+                },
+                Keys.date: self.data.header.date
+            },
+
+            Keys.body: self.data.body,
+
+            Keys.footer: {
+                Keys.programVersion: self.data.footer.programVersion,
+                Keys.libraryVersion: self.data.footer.libVersion,
+                Keys.formatterVersion: self.data.footer.formatterVersion
+            }
+        }
+
+        return json.dumps(formatted, indent=4)
 
     def to_data(self):
         pass
