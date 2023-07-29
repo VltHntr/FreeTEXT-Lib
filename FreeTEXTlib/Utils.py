@@ -12,9 +12,9 @@ class Formater:
 
     def init_format(self, creator: Creator):
         if self.isInit:
-            print("Already init...")
+            print("Already initialize...")
         else:
-            print("Init Formater...")
+            print("initialize Formater...")
             form = [
                 self.__init_header(creator),
                 self.__init_body(),
@@ -24,10 +24,11 @@ class Formater:
             for i in form:
                 self.format.update(i)
 
-            print("Formatter is init.")
+            print("Formatter is initialize.")
+            self.isInit = True
 
     def __init_header(self, creator: Creator):
-        print("Init Header...")
+        print("initialize Header...")
         header = {
             "header": {
                 "creator": {
@@ -37,19 +38,19 @@ class Formater:
                 "date": datetime.date.today()
             }
         }
-        print("Header is init.")
+        print("Header is initialize.")
 
         return header
 
     def __init_body(self):
-        print("init Body...")
+        print("initialize Body...")
         body = {"body": ""}
-        print("Body is Init:")
+        print("Body is initialize.")
 
         return body
 
     def __init_footer(self):
-        print("Init footer...")
+        print("initialize footer...")
         footer = {
             "footer": {
                 "libver": 0.1,
@@ -57,7 +58,7 @@ class Formater:
                 "fmtver": 0.1
             }
         }
-        print("Footer is init.")
+        print("Footer is initialize.")
 
         return footer
 
@@ -71,10 +72,14 @@ class SaveManager:
             os.makedirs(self.basePath)
 
     def save_to_text(self, fileName: str, content: str) -> None:
+        print(f"Saving: {self.basePath}/{fileName}.txt")
+
         with open(f"{self.basePath}/{fileName}.txt", "w") as f:
             f.write(content)
 
     def load_from_text(self, fileName: str) -> str:
+        print(f"Saving: {self.basePath}/{fileName}.txt")
+
         with open(f"{self.basePath}/{fileName}.txt", "r") as f:
             content = f.read()
 

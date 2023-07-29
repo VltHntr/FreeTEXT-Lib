@@ -1,2 +1,4 @@
 tests.py
 data/hallo_welt.txt
+data/
+FreeTEXTlib/__pycache__
