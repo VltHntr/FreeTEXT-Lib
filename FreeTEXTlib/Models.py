@@ -18,13 +18,13 @@ class Header:
 
 @dataclass
 class Footer:
+    programVersion: float
     libVersion: float = LibraryInformation.LIBVER.value
-    programVersion: float = 0.1
     formatterVersion: float = LibraryInformation.FMTVER.value
 
 
 @dataclass
 class DataForm:
     header: Header
+    footer: Footer
     body: str = ""
-    footer: Footer = Footer()
