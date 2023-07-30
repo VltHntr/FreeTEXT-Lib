@@ -26,14 +26,14 @@ Used library's:
 
 ---
 
-### Todos:
+### Stages of development:
 
-* [ ]  Phase 1: Road to Aplha 1
-
+Stage 1: Road to Aplha 1
   * [X]  Provide all static variables
   * [X]  implement all models
   * [ ]  Fully functional and stable Formatter
   * [ ]  Fully functional and stable SaveManager
-* [ ]  Phase 2: TBA
+
+Stage 2: TBA
 
 *If a function or feature is crossed out, then further development and release has been cancelled.*
