@@ -52,7 +52,7 @@ class Formatter:
     def set_footer(self, new_footer: Footer):
         self.data.footer = new_footer
 
-    def overide_creator(self, new_creator: Creator):
+    def override_creator(self, new_creator: Creator):
         if self.isInit:
             self.data.header.creator = new_creator
         else:

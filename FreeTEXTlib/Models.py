@@ -3,7 +3,7 @@ import datetime
 
 from FreeTEXTlib.Statics import LibraryInformation
 
-
+# Begin FreeTEXT format Data Classes
 @dataclass
 class Creator:
     lastname: str
@@ -28,3 +28,4 @@ class DataForm:
     header: Header
     footer: Footer
     body: str = ""
+# End FreeTEXT Format Data Classes

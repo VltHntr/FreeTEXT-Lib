@@ -1,12 +1,12 @@
 import tkinter as tk
-from FreeTEXTlib.Utils import Formatter
+from FreeTEXTlib.Base import Formatter
 
 
 class ShowFormatterMeta:
     def __init__(self, run_now: bool, formatter: Formatter):
         self.root = tk.Tk()
         self.root.title("Formatter Meta Information")
-        self.root.geometry("300x200")
+        self.root.geometry("300x180")
 
         meta = [
             f"Creator: {formatter.data.header.creator.lastname}, {formatter.data.header.creator.firstname}",
@@ -20,6 +20,9 @@ class ShowFormatterMeta:
             lbl = tk.Label(self.root, text=i)
             lbl.pack()
 
+        btn_close = tk.Button(self.root, text="Close", command=self.close_window)
+        btn_close.pack()
+
         if run_now:
             self.run()
 
@@ -27,3 +30,6 @@ class ShowFormatterMeta:
         print("Running Meta Message")
         self.root.mainloop()
         print("Closed Meta Message")
+
+    def close_window(self):
+        self.root.quit()
