@@ -7,7 +7,7 @@ class LibraryInformation(Enum):
     FMTVER = 0.1
 
 
-@dataclasses.dataclass
+@dataclasses.dataclass(frozen=True)
 class Keys:
     header: str = "header"
     creator: str = "creator"
